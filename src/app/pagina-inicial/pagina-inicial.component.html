@@ -1,0 +1,127 @@
+<header class="text-center text-white masthead"
+    style="background:url('assets/img/Fundo%20Biblioteca.jpg')no-repeat center center;background-size:cover;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto position-relative">
+                <h1 class="mb-5" style="font-size: 30px;"><br>O IBook surgiu para facilitar o acesso da população às
+                    Bibliotecas, não é mais preciso se deslocar até elas, agora você pode pegar seus livros favoritos
+                    emprestados direto da sua casa!<br><br></h1>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
+                <form [formGroup]="pageForm">
+                    <div class="row" (ngSubmit)="onSubmit($event)">
+                        <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg"
+                                type="email" placeholder="Insira seu e-mail" formControlName="email"></div>
+                        <div class="col-12 col-md-3"><button id="btnVamos1" class="btn btn-primary btn-lg" type="submit"
+                                style="padding: 8px 10px;" (click)="handleNavigation()">Vamos!</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="text-center bg-light features-icons">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                    <div class="d-flex features-icons-icon"><i class="icon-screen-desktop m-auto text-primary"
+                            data-bss-hover-animate="pulse"></i></div>
+                    <h3>Versão Web</h3>
+                    <p class="lead mb-0">Você pode acessar o IBook pelo computador!</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                    <div class="d-flex features-icons-icon"><i class="icon-screen-smartphone m-auto text-primary"
+                            data-bss-hover-animate="pulse"></i></div>
+                    <h3>Versão Moblie</h3>
+                    <p class="lead mb-0">Mas também pode acessar pelo celular!</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                    <div class="d-flex features-icons-icon"><i class="icon-check m-auto text-primary"
+                            data-bss-hover-animate="pulse"></i></div>
+                    <h3>Fácil de Usar</h3>
+                    <p class="lead mb-0">O IBook funciona da mesma forma como os apps de delivery que você já conhece!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="showcase">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-6 text-white order-lg-2 showcase-img"
+                style="background-image:url(&quot;assets/img/conforto.jpg&quot;);"><span></span></div>
+            <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+                <h2>Seus livros favoritos no conforto da sua casa =)</h2>
+                <p class="lead mb-0">Através da nossa plataforma, você pode se conectar às bibliotecas da região e pegar
+                    os livros que quiser emprestados sem ter que sair de casa</p>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-6 text-white showcase-img"
+                style="background-image:url(&quot;assets/img/AppMapa.jpg&quot;);"><span></span></div>
+            <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+                <h2>Localize as bibliotecas mais próximas com o nosso mapa</h2>
+                <p class="lead mb-0">Fácil e rápido de utilizar. E quanto mais próxima a biblioteca, mais cedo seu livro
+                    vai chegar&nbsp; ^-^</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="text-center bg-light testimonials">
+    <div class="container">
+        <h2 class="mb-5">O que as pessoas estão achando do IBook</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3"
+                        src="assets/img/testimonials-1.jpg">
+                    <h5>Marina Sales</h5>
+                    <p class="font-weight-light mb-0">"Um trabalho incrivel! Amei"</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3"
+                        src="assets/img/testimonials-2.jpg">
+                    <h5>João Pedro</h5>
+                    <p class="font-weight-light mb-0">"Finalmente posso ler os meus livros favoritos e físicos sem sair
+                        de casa!"</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3"
+                        src="assets/img/testimonials-3.jpg">
+                    <h5>Beatriz Santos</h5>
+                    <p class="font-weight-light mb-0">"Nunca imaginei que algo assim fosse possível. Fiquei surpresa!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="text-center text-white call-to-action"
+    style="background:url(&quot;assets/img/Fundo%20Biblioteca.jpg&quot;) no-repeat center center;background-size:cover;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto position-relative">
+                <h2 class="mb-4">Pronto para começar? Inscreva-se agora!</h2>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
+                <form [formGroup]="pageForm">
+                    <div class="row" (ngSubmit)="onSubmit($event)">
+                        <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg"
+                                type="email" placeholder="Insira seu e-mail" formControlName="email"></div>
+                        <div class="col-12 col-md-3"><button id="btnVamos1" class="btn btn-primary btn-lg" type="submit"
+                                style="padding: 8px 10px;" (click)="handleNavigation()">Vamos!</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
