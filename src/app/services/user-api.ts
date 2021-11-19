@@ -7,7 +7,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UserApiService {
-  url = "https://ibook-dev.herokuapp.com/usuario/registrar";//TODO alterar URL para api publicada
+  url = "https://ibook-back.herokuapp.com/usuario/registrar";//TODO alterar URL para api publicada
   constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {
