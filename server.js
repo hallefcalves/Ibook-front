@@ -5,10 +5,10 @@ const path = require('path');
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static('./dist/speech-to-libras'));
+app.use(express.static('./dist/IBOOK-FRONT'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/speech-to-libras/'}),
+    res.sendFile('index.html', {root: 'dist/IBOOK-FRONT/'}),
 );
 
 // Start the app by listening on the default Heroku port
