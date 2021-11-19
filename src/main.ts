@@ -8,7 +8,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-app.set('port', process.env.PORT || 3000)
-
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
