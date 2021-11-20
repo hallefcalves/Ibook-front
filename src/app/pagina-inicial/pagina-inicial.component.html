@@ -13,7 +13,7 @@
                     <div class="row" (ngSubmit)="onSubmit($event)">
                         <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg"
                                 type="email" placeholder="Insira seu e-mail" formControlName="email"></div>
-                        <div class="col-12 col-md-3"><button _ngcontent-fsi-c56="" id="btnVamos1" type="submit" class="btn btn-primary btn-lg" style="padding: 8px 25px;">Cadastre-se!</button></div>
+                        <div class="col-12 col-md-3"><button _ngcontent-fsi-c56="" id="btnVamos1" type="submit" class="btn btn-primary btn-lg" (click)="handleNavigation()" style="padding: 8px 25px;">Cadastre-se!</button></div>
                     </div>
                 </form>
             </div>
