@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http'
-import { Observable, throwError } from 'rxjs';
+import { observable, Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { User } from '../models/user';
+import { Login } from '../models/login';
+import { Token } from '../models/token';
 @Injectable({
   providedIn: 'root'
 })
 export class UserApiService {
-  url = "https://ibook-back.herokuapp.com/usuario/registrar";//TODO alterar URL para api publicada
+  url = "https://ibook-back.herokuapp.com/usuario";
   constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {
@@ -34,7 +36,56 @@ export class UserApiService {
         'Cache-Control': 'no-cache'
       });
       let options = { headers: httpHeaders }
-      return this.http.post<User>(this.url, user, options);
+      
+
+      return this.http.post<User>(this.url+"/registrar", user, options);
     }
+  }
+
+  updateUserLogado(): Observable<User> {
+    {
+      let httpHeaders = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache'
+      });
+      let options = { headers: httpHeaders }
+      
+      var user = this.obtemUserLogado();
+      user.subscribe(data => {
+        var token = JSON.parse(sessionStorage.getItem("userLogado") as string) as Token;
+        return this.http.post<User>(this.url+"/atualizar/"+token.idUser, data, options);
+      })
+     return new Observable;
+    }
+
+  }
+
+  validaLogin(login : Login):  Observable<Token> {
+    {
+      let httpHeaders = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache'
+      });
+      let options = { headers: httpHeaders }
+      
+
+      return this.http.post<Token>(this.url + "/auth", login, options);
+    }
+  }
+
+  isUserLogado(): boolean{
+    return sessionStorage.getItem("userLogado")!=null;
+  }
+
+  obtemUserLogado(): Observable<User> {
+    if(sessionStorage.getItem("userLogado")!=null){
+      var token = JSON.parse(sessionStorage.getItem("userLogado") as string) as Token;
+      return this.http.get<User>(this.url + "/" + token.idUser);
+    }
+    return new Observable;
+  }
+
+  fazLoginSession(user : Token){
+    sessionStorage.setItem('userLogado', JSON.stringify(user));
   }
 }

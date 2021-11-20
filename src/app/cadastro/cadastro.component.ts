@@ -10,17 +10,21 @@ import { UserApiService } from '../services/user-api';
 })
 export class CadastroComponent implements OnInit {
   email: string | null = '';
-  constructor(private router: ActivatedRoute, private fb: FormBuilder, private api:UserApiService) {
+  senha: string | null = '';
+  constructor(private router: ActivatedRoute, private fb: FormBuilder, private api:UserApiService, private r: Router) {
     this.route = router
-    this.pageForm = this.fb.group({ email: [this.email], senha: [''] })
+    this.rt = r
+    this.pageForm = this.fb.group({ email: [this.email], senha: [this.senha] })
   }
   pageForm: FormGroup;
 
   route: ActivatedRoute = new ActivatedRoute();
+  rt: Router;
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
      this.email = params['user'];
+     this.senha = params['user'];
     });
     this.pageForm.setValue({
       email: this.email, 
@@ -31,6 +35,7 @@ export class CadastroComponent implements OnInit {
 
   createUser(){
     console.log(this.pageForm.value)
-    this.api.createUser(this.pageForm.value).subscribe(data => console.log(data));
+    this.api.createUser(this.pageForm.value).subscribe(data => console.log(data));  
+    this.rt.navigateByUrl('/finalizar-cadastro');
   }
 }

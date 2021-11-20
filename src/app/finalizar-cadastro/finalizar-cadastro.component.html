@@ -1,0 +1,26 @@
+<section class="contact-clean">
+    <form method="post" [formGroup]="pageForm" style="height: 1082px;padding: 48px;width: 801px;max-width: none;">
+        <h2 class="text-center">Finalize seu cadastro</h2>
+        <p>Fale um pouco mais sobre você</p>
+        <div class="mb-3"><input class="form-control" type="text" name="name" formControlName="nome" placeholder="Nome"></div>
+        <input class="form-control" type="text" name="surname"  formControlName="sobrenome" placeholder="Sobrenome">
+        <p style="margin-top: 22px;margin-bottom: 15px;"  >Data de Nascimento</p>
+        <input class="form-control" formControlName="dataDeAniversario" type="date">
+        <p style="margin-top: 22px;margin-bottom: 15px;">Telefones</p>
+        <div class="mb-3"></div>
+        <div class="mb-3"></div>
+        <div class="mb-3"></div>
+        <input class="form-control" type="text" name="telefone1"  formControlName="telefone1" placeholder="Telefone Principal" style="margin-bottom: 12px;">
+        <input class="form-control" type="text" name="telefone2" formControlName="telefone2" placeholder="Telefone Secundário" style="margin-bottom: 1px;">
+        <p style="margin-top: 22px;margin-bottom: 15px;">Endereço</p>
+        <input class="form-control" type="text" name="rua"  formControlName="rua" placeholder="Rua" style="margin-bottom: 1px;margin-top: 12px;">
+        <input class="form-control" type="text" name="num" placeholder="Número"  formControlName="num" style="margin-bottom: 1px;margin-top: 13px;">
+        <input class="form-control" type="text" name="bairro" placeholder="Bairro"  formControlName="bairro" style="margin-bottom: 1px;margin-top: 13px;">
+        <input class="form-control" type="text" name="complemento" placeholder="Complemento"  formControlName="complemento" style="margin-top: 12px;">
+        <input class="form-control" type="text" name="cidade" placeholder="Cidade"  formControlName="cidade" style="margin-top: 12px;">
+        <input class="form-control" type="text" name="estado" placeholder="Estado"  formControlName="estado" style="margin-top: 12px;">
+        <input class="form-control" type="text" name="cep" placeholder="CEP"  formControlName="cep" style="margin-top: 12px;">
+        <button class="btn btn-primary" type="submit" (click)="updateUser()" style="text-align: center;margin-top: 45px;">Enviar</button>
+    </form>
+</section>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>

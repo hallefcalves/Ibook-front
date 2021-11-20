@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
-  <div class="container"><a class="navbar-brand"  [routerLink]="['/pagina-inicial']">IBook</a><button data-bs-toggle="collapse"
-      class="navbar-toggler" data-bs-target="#navcol-1"></button>
+  <div class="container"><a class="navbar-brand" [routerLink]="['/pagina-inicial']">IBook</a><button
+      data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
     <router-outlet></router-outlet>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
           <a class="nav-link" aria-current="page" [routerLink]="['/pagina-inicial']" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/forum']" routerLinkActive="active">Forúm</a>
+          <a class="nav-link" [routerLink]="['/mapa']" routerLinkActive="active">Mapa</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/biblioteca']" routerLinkActive="active">Biblioteca</a>
@@ -32,38 +32,35 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-      </form>
     </div>
   </div>
+  <button class="btn btn-outline-success" style="margin-right: 1rem" [routerLink]="['/login']" routerLinkActive="active">Login</button>
 </nav>
 <router-outlet></router-outlet>
 <footer class="bg-light footer">
   <br>
   <div class="container">
-      <div class="row">
-          <div class="col-lg-6 text-center text-lg-start my-auto h-100">
-              <ul class="list-inline mb-2">
-                  <li class="list-inline-item"><a href="#">Sobre nós</a></li>
-                  <li class="list-inline-item"><span>⋅</span></li>
-                  <li class="list-inline-item"><a href="#">Contato</a></li>
-                  <li class="list-inline-item"><span>⋅</span></li>
-                  <li class="list-inline-item"><a href="#">Termos de Uso</a></li>
-                  <li class="list-inline-item"><span>⋅</span></li>
-                  <li class="list-inline-item"><a href="#">Política de Privacidade</a></li>
-              </ul>
-              <p class="text-muted small mb-4 mb-lg-0">© IBook 2021. Todos os Direitos Reservados.</p>
-          </div>
-          <div class="col-lg-6 text-center text-lg-end my-auto h-100">
-              <ul class="list-inline mb-0">
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
-              </ul>
-          </div>
+    <div class="row">
+      <div class="col-lg-6 text-center text-lg-start my-auto h-100">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item"><a href="#">Sobre nós</a></li>
+          <li class="list-inline-item"><span>⋅</span></li>
+          <li class="list-inline-item"><a href="#">Contato</a></li>
+          <li class="list-inline-item"><span>⋅</span></li>
+          <li class="list-inline-item"><a href="#">Termos de Uso</a></li>
+          <li class="list-inline-item"><span>⋅</span></li>
+          <li class="list-inline-item"><a href="#">Política de Privacidade</a></li>
+        </ul>
+        <p class="text-muted small mb-4 mb-lg-0">© IBook 2021. Todos os Direitos Reservados.</p>
       </div>
+      <div class="col-lg-6 text-center text-lg-end my-auto h-100">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+        </ul>
+      </div>
+    </div>
   </div>
   <br>
 </footer>

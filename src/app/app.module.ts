@@ -11,6 +11,8 @@ import { CalendarioDevolucaoComponent } from './calendario-devolucao/calendario-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { MapaComponent } from './mapa/mapa/mapa.component';
+import { FinalizarCadastroComponent } from './finalizar-cadastro/finalizar-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { LoginComponent } from './login/login.component';
     MinhasInformacoesComponent,
     MeusLivrosComponent,
     CalendarioDevolucaoComponent,
-    LoginComponent
+    LoginComponent,
+    MapaComponent,
+    FinalizarCadastroComponent
   ],
   imports: [
     BrowserModule,

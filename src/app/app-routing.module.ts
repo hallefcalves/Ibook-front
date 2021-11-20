@@ -4,15 +4,17 @@ import { AjudaComponent } from './ajuda/ajuda.component';
 import { BibliotecaLivrosComponent } from './biblioteca/biblioteca-livros/biblioteca-livros.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { CalendarioDevolucaoComponent } from './calendario-devolucao/calendario-devolucao.component';
-import { ForumListaComponent } from './forum/forum-lista/forum-lista.component';
 import { MeusLivrosComponent } from './meus-livros/meus-livros.component';
 import { MinhasInformacoesComponent } from './minhas-informacoes/minhas-informacoes.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { LoginComponent } from './login/login.component';
+import { MapaComponent } from './mapa/mapa/mapa.component';
+import { FinalizarCadastroComponent } from './finalizar-cadastro/finalizar-cadastro.component';
+
 
 const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
-  { path: 'forum', component: ForumListaComponent},
+  {path: 'mapa', component: MapaComponent},
   { path: 'biblioteca', component: BibliotecaLivrosComponent},
   { path: 'pagina-inicial', component: PaginaInicialComponent},
   { path: '', component: PaginaInicialComponent},
@@ -20,7 +22,8 @@ const routes: Routes = [
   { path: 'livros', component: MeusLivrosComponent },
   { path: 'calendario', component: CalendarioDevolucaoComponent },
   { path: 'perfil', component: MinhasInformacoesComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'finalizar-cadastro', component: FinalizarCadastroComponent}
 ];
 
 @NgModule({

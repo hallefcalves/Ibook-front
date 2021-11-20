@@ -3,13 +3,19 @@
         <div class="image-holder"></div>
         <form method="post" [formGroup]="pageForm">
             <h2 class="text-center"><strong>Crie</strong>&nbsp;uma conta.</h2>
-            <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email" formControlName="email"></div>
-            <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Senha" formControlName="senha"></div>
-            <div class="mb-3"><input class="form-control" type="password" name="password-repeat" placeholder="Senha (confirme)"></div>
+            <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"
+                    formControlName="email"></div>
+            <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Senha"
+                    formControlName="senha"></div>
+            <div class="mb-3"><input class="form-control" type="password" name="password-repeat"
+                    placeholder="Senha (confirme)"></div>
             <div class="mb-3">
-                <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">Eu concordo com os termos de serviço.</label></div>
+                <div><label class="show-error" id="showError">Erro</label></div>
             </div>
-            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" (click)='createUser()'>Inscreva-se!</button></div><a class="already" [routerLink]="['/login']" routerLinkActive="active">Já tem uma conta? Faça login aqui.</a>
+            <div class="mb-3">
+                <button class="btn btn-primary d-block w-100" type="submit" (click)='createUser()'>Inscreva-se!</button>
+            </div><a class="already" [routerLink]="['/login']" routerLinkActive="active">Já tem uma conta? Faça login
+                aqui.</a>
         </form>
     </div>
 </section>
