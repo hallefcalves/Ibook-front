@@ -1,4 +1,4 @@
 export interface Token {
     token: string
-    idUser: string
+    _id: string
 }

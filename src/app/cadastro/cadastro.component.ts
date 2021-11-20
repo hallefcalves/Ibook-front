@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Login } from '../models/login';
+import { User } from '../models/user';
+import { Token } from '../models/token';
 import { UserApiService } from '../services/user-api';
 
 @Component({
@@ -35,7 +38,11 @@ export class CadastroComponent implements OnInit {
 
   createUser(){
     console.log(this.pageForm.value)
-    this.api.createUser(this.pageForm.value).subscribe(data => console.log(data));  
+    this.api.createUser(this.pageForm.value).subscribe(data => {
+      console.log(data)
+      this.api.fazLoginSession(data as Token);
+      });  
+    
     this.rt.navigateByUrl('/finalizar-cadastro');
   }
 }

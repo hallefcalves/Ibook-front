@@ -5,6 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { User } from '../models/user';
 import { Login } from '../models/login';
 import { Token } from '../models/token';
+import { Session } from '../models/session';
 @Injectable({
   providedIn: 'root'
 })
@@ -42,18 +43,22 @@ export class UserApiService {
     }
   }
 
-  updateUserLogado(): Observable<User> {
+  updateUserLogado(userUpdate: User): Observable<User> {
     {
       let httpHeaders = new HttpHeaders({
         'Content-Type': 'application/json',
         'Cache-Control': 'no-cache'
       });
       let options = { headers: httpHeaders }
-      
+      console.log("teste")
       var user = this.obtemUserLogado();
       user.subscribe(data => {
-        var token = JSON.parse(sessionStorage.getItem("userLogado") as string) as Token;
-        return this.http.post<User>(this.url+"/atualizar/"+token.idUser, data, options);
+        var token = (JSON.parse(sessionStorage.getItem("userLogado") as string) as Session).usuario;
+        console.log(data)
+        userUpdate.email = data.usuario.email
+        userUpdate.senha = data.usuario.senha
+        console.log(userUpdate)
+        return this.http.post<User>(this.url+"/atualizar/"+token._id, userUpdate, options).subscribe(data=>console.log(data));
       })
      return new Observable;
     }
@@ -77,15 +82,17 @@ export class UserApiService {
     return sessionStorage.getItem("userLogado")!=null;
   }
 
-  obtemUserLogado(): Observable<User> {
+  obtemUserLogado(): Observable<Session> {
     if(sessionStorage.getItem("userLogado")!=null){
-      var token = JSON.parse(sessionStorage.getItem("userLogado") as string) as Token;
-      return this.http.get<User>(this.url + "/" + token.idUser);
+      console.log("e")
+      var token = (JSON.parse(sessionStorage.getItem("userLogado") as string) as Session).usuario;
+      return this.http.get<Session>(this.url + "/" + token._id);
     }
     return new Observable;
   }
 
   fazLoginSession(user : Token){
-    sessionStorage.setItem('userLogado', JSON.stringify(user));
+    console.log("salvo session: "+ JSON.stringify(user))
+    sessionStorage.setItem("userLogado", JSON.stringify(user));
   }
 }

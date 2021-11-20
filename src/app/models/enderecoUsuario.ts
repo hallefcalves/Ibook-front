@@ -4,5 +4,6 @@ export interface EnderecoUsuario {
         bairro: string,
         cidade:string,
         estado:string,
-        cep: string
+        cep: string,
+        complemento: string
 }
