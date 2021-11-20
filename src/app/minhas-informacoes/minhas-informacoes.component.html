@@ -1,4 +1,5 @@
 <body><div class="container">
+    <form method="post" [formGroup]="pageForm">
     <div class="row gutters">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
     <div class="card h-100">
@@ -29,19 +30,19 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="fullName">Nome</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Digite o nome completo">
+                        <input type="text" class="form-control" id="fullName" formControlName="nome" placeholder="Digite o nome completo">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="eMail">Email</label>
-                        <input type="email" class="form-control" id="eMail" placeholder="Email">
+                        <input type="email" class="form-control" id="eMail" formControlName="email" placeholder="Email">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="phone">Celular</label>
-                        <input type="text" class="form-control" id="phone" placeholder="Número para contato">
+                        <input type="text" class="form-control" id="phone" formControlName="telefone1" placeholder="Número para contato">
                     </div>
                 </div>
             </div>
@@ -52,25 +53,25 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="Street">Rua</label>
-                        <input type="name" class="form-control" id="Street" placeholder="Rua">
+                        <input type="name" class="form-control" id="Street" formControlName="rua" placeholder="Rua">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="ciTy">Cidade</label>
-                        <input type="name" class="form-control" id="ciTy" placeholder="Cidade">
+                        <input type="name" class="form-control" id="ciTy" formControlName="cidade" placeholder="Cidade">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="sTate">Estado</label>
-                        <input type="text" class="form-control" id="sTate" placeholder="Estado">
+                        <input type="text" class="form-control" id="sTate" formControlName="estado" placeholder="Estado">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="zIp">CEP</label>
-                        <input type="text" class="form-control" id="zIp" placeholder="00000-000">
+                        <input type="text" class="form-control" id="zIp" formControlName="cep" placeholder="00000-000">
                     </div>
                 </div>
             </div>
@@ -78,14 +79,14 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-right">
                         <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancelar</button>
-                        <button type="button" id="submit" name="submit" class="btn btn-primary">Salvar</button>
+                        <button type="button" id="submit" name="submit" (click)="updateUser()" class="btn btn-primary">Salvar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
-    </div>
+    </div></form>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

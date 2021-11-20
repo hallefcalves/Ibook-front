@@ -67,5 +67,6 @@ export class FinalizarCadastroComponent implements OnInit {
 
     console.log(this.user)
     this.api.updateUserLogado(this.user)
+  this.rt.navigateByUrl('/biblioteca');
   }
 }

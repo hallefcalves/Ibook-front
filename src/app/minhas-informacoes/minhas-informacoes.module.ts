@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MinhasInformacoesRoutingModule } from './minhas-informacoes-routing.module';
 
 
+
 @NgModule({
   declarations: [],
   imports: [
@@ -11,4 +12,5 @@ import { MinhasInformacoesRoutingModule } from './minhas-informacoes-routing.mod
     MinhasInformacoesRoutingModule
   ]
 })
-export class MinhasInformacoesModule { }
+export class MinhasInformacoesModule {
+}
