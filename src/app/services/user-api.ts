@@ -58,7 +58,7 @@ export class UserApiService {
         userUpdate.email = data.usuario.email
         userUpdate.senha = data.usuario.senha
         console.log(userUpdate)
-        return this.http.post<User>(this.url+"/atualizar/"+token._id, userUpdate, options).subscribe(data=>console.log(data));
+        return this.http.put<User>(this.url+"/atualizar/"+token._id, userUpdate, options).subscribe(data=>console.log(data));
       })
      return new Observable;
     }
