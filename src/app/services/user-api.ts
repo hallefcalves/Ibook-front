@@ -6,6 +6,7 @@ import { User } from '../models/user';
 import { Login } from '../models/login';
 import { Token } from '../models/token';
 import { Session } from '../models/session';
+import { TokenLogin } from '../models/TokenLogin';
 @Injectable({
   providedIn: 'root'
 })
@@ -53,7 +54,7 @@ export class UserApiService {
       console.log("teste")
       var user = this.obtemUserLogado();
       user.subscribe(data => {
-        var token = (JSON.parse(sessionStorage.getItem("userLogado") as string) as Session).usuario;
+        var token = (JSON.parse(sessionStorage.getItem("userLogado") as string) as Token);
         console.log(data)
         userUpdate.email = data.usuario.email
         userUpdate.senha = data.usuario.senha
@@ -65,7 +66,7 @@ export class UserApiService {
 
   }
 
-  validaLogin(login : Login):  Observable<Token> {
+  validaLogin(login : Login):  Observable<TokenLogin> {
     {
       let httpHeaders = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -74,7 +75,7 @@ export class UserApiService {
       let options = { headers: httpHeaders }
       
 
-      return this.http.post<Token>(this.url + "/auth", login, options);
+      return this.http.post<TokenLogin>(this.url + "/auth", login, options);
     }
   }
 
@@ -83,9 +84,10 @@ export class UserApiService {
   }
 
   obtemUserLogado(): Observable<Session> {
+    console.log(sessionStorage.getItem("userLogado"))
     if(sessionStorage.getItem("userLogado")!=null){
-      console.log("e")
-      var token = (JSON.parse(sessionStorage.getItem("userLogado") as string) as Session).usuario;
+      var token = (JSON.parse(sessionStorage.getItem("userLogado") as string) as Token);
+      console.log(token)
       return this.http.get<Session>(this.url + "/" + token._id);
     }
     return new Observable;

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserApiService } from '../services/user-api';
 import { sanitizeIdentifier } from '@angular/compiler';
+import Swal from 'sweetalert2';  
 
 @Component({
   selector: 'app-minhas-informacoes',
@@ -54,7 +55,7 @@ export class MinhasInformacoesComponent implements OnInit {
       this.user.enderecoUsuario[0].cep= user.enderecoUsuario[0].cep;
       this.user.telefone1= user.telefone1;
       this.user.enderecoUsuario[0].complemento= user.enderecoUsuario[0].complemento;
-
+      
       this.pageForm.setValue({
         email: this.user.email, nome: this.user.nome, dataDeAniversario: this.user.dataDeAniversario, bairro: this.user.enderecoUsuario[0].bairro, 
     rua: this.user.enderecoUsuario[0].rua, num: this.user.enderecoUsuario[0].num, cidade:this.user.enderecoUsuario[0].cidade, estado:this.user.enderecoUsuario[0].estado,
@@ -78,5 +79,6 @@ export class MinhasInformacoesComponent implements OnInit {
 
   console.log(this.user)
   this.api.updateUserLogado(this.user)
+    Swal.fire('Sucesso', 'Dados Alterados com Sucesso!', 'success')  
   }
 }

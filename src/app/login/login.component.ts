@@ -5,6 +5,9 @@ import { UserApiService } from '../services/user-api';
 
 //import Swal from 'sweetalert2/dist/sweetalert2.js'; 
 import { User } from '../models/user';
+import Swal from 'sweetalert2';
+import { TokenLogin } from '../models/TokenLogin';
+import { Token } from '../models/token';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,15 +40,29 @@ export class LoginComponent implements OnInit {
 
       if(data.token!=null){
         this.token = data.token;
-        this.api.fazLoginSession(data);
+        var tokenLogin = {} as Token
+        tokenLogin._id = data.userid;
+        tokenLogin.token = data.token;
+        this.api.fazLoginSession(tokenLogin);
+        
+
         console.log(data)
         console.log(this.token)
-        this.rt.navigateByUrl('/biblioteca');
+        this.api.obtemUserLogado().subscribe(dados => {
+          var user = dados.usuario
+          if(user.enderecoUsuario.length==0){
+            this.rt.navigateByUrl('/finalizar-cadastro');
+          }
+          else{
+            this.rt.navigateByUrl('/biblioteca');
+          }
+        })
       }
       else{
-           
+        Swal.fire('Erro', 'Email ou senha incorretos!', 'error')  
       }
-    });
+    },
+    erro => Swal.fire('Erro', 'Email ou senha incorretos!', 'error') );
     
   }
 }
