@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserApiService } from '../services/user-api';
@@ -34,7 +34,9 @@ export class LoginComponent implements OnInit {
      });
   }
 
-  validaLogin(){
+  @Output() mudaBtnEvent = new EventEmitter<string>();
+
+  validaLogin() {
     console.log(this.pageFormLogin.value)
     this.api.validaLogin(this.pageFormLogin.value).subscribe(data => {
 
@@ -44,7 +46,7 @@ export class LoginComponent implements OnInit {
         tokenLogin._id = data.userid;
         tokenLogin.token = data.token;
         this.api.fazLoginSession(tokenLogin);
-        
+        this.mudaBtnEvent.emit("teste");
 
         console.log(data)
         console.log(this.token)

@@ -34,7 +34,7 @@
       </ul>
     </div>
   </div>
-  <button class="btn btn-outline-success" style="margin-right: 1rem" [routerLink]="['/login']" routerLinkActive="active">Login</button>
+  <button class="btn btn-outline-success" style="margin-right: 1rem" (click)="logOnOff()">{{btnLogin}}</button>
 </nav>
 <router-outlet></router-outlet>
 <footer class="bg-light footer">

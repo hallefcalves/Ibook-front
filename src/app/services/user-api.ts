@@ -80,7 +80,7 @@ export class UserApiService {
   }
 
   isUserLogado(): boolean{
-    return sessionStorage.getItem("userLogado")!=null;
+    return sessionStorage.getItem("userLogado")!=null && sessionStorage.getItem("userLogado")!=undefined;
   }
 
   obtemUserLogado(): Observable<Session> {
@@ -96,5 +96,9 @@ export class UserApiService {
   fazLoginSession(user : Token){
     console.log("salvo session: "+ JSON.stringify(user))
     sessionStorage.setItem("userLogado", JSON.stringify(user));
+  }
+
+  limparSession(){
+    sessionStorage.clear();
   }
 }
