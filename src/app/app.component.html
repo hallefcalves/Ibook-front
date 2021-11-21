@@ -17,10 +17,10 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/biblioteca']" routerLinkActive="active">Biblioteca</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" [hidden]="!isLogado">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Perfil
+            {{nomeLogado}}
           </a>
           <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
             <li><a class="dropdown-item" [routerLink]="['/livros']" routerLinkActive="active">Meus Livros</a></li>
@@ -28,7 +28,7 @@
                 de Devolução</a></li>
             <li><a class="dropdown-item" [routerLink]="['/perfil']" routerLinkActive="active">Minhas
                 Informações</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/ajuda']" routerLinkActive="active">Ajuda</a></li>
+           
           </ul>
         </li>
       </ul>
@@ -47,7 +47,9 @@
           <li class="list-inline-item"><span>⋅</span></li>
           <li class="list-inline-item"><a [routerLink]="['/contato']" routerLinkActive="active">Contato</a></li>
           <li class="list-inline-item"><span>⋅</span></li>
-          <li class="list-inline-item" ><a [routerLink]="['/termos-de-uso']" routerLinkActive="active">Termos de Uso</a></li>
+          <li class="list-inline-item"><a [routerLink]="['/termos-de-uso']" routerLinkActive="active">Termos de Uso</a></li>
+          <li class="list-inline-item"><span>⋅</span></li>
+          <li class="list-inline-item"><a [routerLink]="['/ajuda']" routerLinkActive="active">Ajuda</a></li>
         </ul>
         <p class="text-muted small mb-4 mb-lg-0">© IBook 2021. Todos os Direitos Reservados.</p>
       </div>
