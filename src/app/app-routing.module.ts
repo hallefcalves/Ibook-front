@@ -10,6 +10,10 @@ import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.componen
 import { LoginComponent } from './login/login.component';
 import { MapaComponent } from './mapa/mapa/mapa.component';
 import { FinalizarCadastroComponent } from './finalizar-cadastro/finalizar-cadastro.component';
+import { TermosDeUsoComponent } from './termos-de-uso/termos-de-uso.component';
+import { ContatoComponent } from './contato/contato.component';
+import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
+
 
 
 const routes: Routes = [
@@ -23,7 +27,10 @@ const routes: Routes = [
   { path: 'calendario', component: CalendarioDevolucaoComponent },
   { path: 'perfil', component: MinhasInformacoesComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'finalizar-cadastro', component: FinalizarCadastroComponent}
+  { path: 'finalizar-cadastro', component: FinalizarCadastroComponent},
+  { path: 'termos-de-uso', component: TermosDeUsoComponent},
+  { path: 'contato', component: ContatoComponent},
+  { path: 'sobre-nos', component: SobreNosComponent}
 ];
 
 @NgModule({

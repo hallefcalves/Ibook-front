@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { MapaComponent } from './mapa/mapa/mapa.component';
 import { FinalizarCadastroComponent } from './finalizar-cadastro/finalizar-cadastro.component';
+import { TermosDeUsoComponent } from './termos-de-uso/termos-de-uso.component';
+import { ContatoComponent } from './contato/contato.component';
+import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { FinalizarCadastroComponent } from './finalizar-cadastro/finalizar-cadas
     CalendarioDevolucaoComponent,
     LoginComponent,
     MapaComponent,
-    FinalizarCadastroComponent
+    FinalizarCadastroComponent,
+    TermosDeUsoComponent,
+    ContatoComponent,
+    SobreNosComponent,
   ],
   imports: [
     BrowserModule,
