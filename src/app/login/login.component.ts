@@ -6,7 +6,6 @@ import { UserApiService } from '../services/user-api';
 //import Swal from 'sweetalert2/dist/sweetalert2.js'; 
 import { User } from '../models/user';
 import Swal from 'sweetalert2';
-import { TokenLogin } from '../models/TokenLogin';
 import { Token } from '../models/token';
 @Component({
   selector: 'app-login',
