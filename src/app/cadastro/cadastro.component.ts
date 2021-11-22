@@ -5,6 +5,7 @@ import { Login } from '../models/login';
 import { User } from '../models/user';
 import { Token } from '../models/token';
 import { UserApiService } from '../services/user-api';
+import { BibliotecaApiService } from '../services/biblioteca-api';
 
 @Component({
   selector: 'app-cadastro',
@@ -14,7 +15,8 @@ import { UserApiService } from '../services/user-api';
 export class CadastroComponent implements OnInit {
   email: string | null = '';
   senha: string | null = '';
-  constructor(private router: ActivatedRoute, private fb: FormBuilder, private api:UserApiService, private r: Router) {
+  tipoUser: string="0";
+  constructor(private router: ActivatedRoute, private fb: FormBuilder, private apiUser:UserApiService,private apiBiblio:BibliotecaApiService, private r: Router) {
     this.route = router
     this.rt = r
     this.pageForm = this.fb.group({ email: [this.email], senha: [this.senha] })
@@ -38,11 +40,50 @@ export class CadastroComponent implements OnInit {
 
   createUser(){
     console.log(this.pageForm.value)
-    this.api.createUser(this.pageForm.value).subscribe(data => {
+    if(this.tipoUser=="0"){
+      this.createComum();
+    }
+    else if(this.tipoUser=="1"){
+      this.createBiblio();
+    }
+  }
+
+  createComum(){
+    this.apiUser.createUser(this.pageForm.value).subscribe(data => {
       console.log(data)
-      this.api.fazLoginSession(data as Token);
+      this.apiUser.fazLoginSession(data as Token);
       });  
     
     this.rt.navigateByUrl('/finalizar-cadastro');
   }
+
+  createBiblio(){
+    this.apiBiblio.createBiblioteca(this.pageForm.value).subscribe(data => {
+      console.log(data)
+      this.apiBiblio.fazLoginSession(data as Token);
+      });  
+    
+    this.rt.navigateByUrl('/finaliza-biblioteca');
+  }
+
+  onItemChange1(value: string){
+    if(value = "on"){
+      this.tipoUser = "0";
+    }
+    
+ }
+
+ onItemChange2(value: string){
+  if(value = "on"){
+    this.tipoUser = "1";
+  }
+  
+}
+onItemChange3(value: string){
+  if(value = "on"){
+    this.tipoUser = "2";
+  }
+  
+}
+
 }

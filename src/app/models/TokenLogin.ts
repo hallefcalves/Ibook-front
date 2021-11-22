@@ -1,4 +1,5 @@
 export interface TokenLogin {
     token: string,
-    userid: string
+    userid: string,
+    bibliotecaid: string
 }

@@ -1,6 +1,9 @@
 import { User } from "./user";
 import { Token } from "./token";
+import { Biblioteca } from "./biblioteca";
 export interface Session {
     usuario: User,
-    token: Token
+    token: Token,
+    biblioteca: Biblioteca, 
+    //bibliotecaid: string
 }

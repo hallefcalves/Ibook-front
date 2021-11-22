@@ -16,6 +16,8 @@ import { FinalizarCadastroComponent } from './finalizar-cadastro/finalizar-cadas
 import { TermosDeUsoComponent } from './termos-de-uso/termos-de-uso.component';
 import { ContatoComponent } from './contato/contato.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
+import { FinalizaBibliotecaComponent } from './finaliza-biblioteca/finaliza-biblioteca.component';
+import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
     TermosDeUsoComponent,
     ContatoComponent,
     SobreNosComponent,
+    FinalizaBibliotecaComponent,
+    CadastroLivroComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { Login } from '../models/login';
 import { Token } from '../models/token';
 import { Session } from '../models/session';
 import { Biblioteca } from '../models/biblioteca';
+import { TokenLogin } from '../models/TokenLogin';
 @Injectable({
   providedIn: 'root'
 })
@@ -53,19 +54,19 @@ export class BibliotecaApiService {
       console.log("teste")
       var Biblioteca = this.obtemBibliotecaLogado();
       Biblioteca.subscribe(data => {
-        var token = (JSON.parse(sessionStorage.getItem("BibliotecaLogado") as string) as Session).usuario;
+        var token = (JSON.parse(sessionStorage.getItem("BibliotecaLogado") as string) as Token);
         console.log(data)
-        BibliotecaUpdate.email = data.usuario.email
-        BibliotecaUpdate.senha = data.usuario.senha
+        BibliotecaUpdate.email = data.biblioteca.email
+        BibliotecaUpdate.senha = data.biblioteca.senha
         console.log(BibliotecaUpdate)
-        return this.http.post<Biblioteca>(this.url+"/atualizar/"+token._id, BibliotecaUpdate, options).subscribe(data=>console.log(data));
+        return this.http.put<Biblioteca>(this.url+"/atualizar/"+token._id, BibliotecaUpdate, options).subscribe(data=>console.log(data));
       })
      return new Observable;
     }
 
   }
 
-  validaLogin(login : Login):  Observable<Token> {
+  validaLogin(login : Login):  Observable<TokenLogin> {
     {
       let httpHeaders = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -74,7 +75,7 @@ export class BibliotecaApiService {
       let options = { headers: httpHeaders }
       
 
-      return this.http.post<Token>(this.url + "/auth", login, options);
+      return this.http.post<TokenLogin>(this.url + "/auth", login, options);
     }
   }
 
@@ -84,8 +85,8 @@ export class BibliotecaApiService {
 
   obtemBibliotecaLogado(): Observable<Session> {
     if(sessionStorage.getItem("BibliotecaLogado")!=null){
-      console.log("e")
-      var token = (JSON.parse(sessionStorage.getItem("BibliotecaLogado") as string) as Session).usuario;
+      var token = (JSON.parse(sessionStorage.getItem("BibliotecaLogado") as string) as Token);
+      console.log(token)
       return this.http.get<Session>(this.url + "/" + token._id);
     }
     return new Observable;

@@ -11,11 +11,21 @@
                     placeholder="Senha (confirme)"></div>
             <div class="mb-3">
                 <!--<div><label class="show-error" id="showError">Erro</label></div>-->
+                <div class="form-check"><input checked="true" (change)="onItemChange1($any($event.target).value)" class="form-check-input" type="radio" id="formCheck-1"
+                    name="radioButtons"><label value="0" class="form-check-label" for="formCheck-1">Sou um usuário
+                    comum</label></div>
+            <div class="form-check"><input (change)="onItemChange2($any($event.target).value)" class="form-check-input" type="radio" id="formCheck-2"
+                    name="radioButtons"><label value="1" class="form-check-label" for="formCheck-2">Represento uma
+                    biblioteca</label></div>
+            <div class="form-check"><input (change)="onItemChange3($any($event.target).value)" class="form-check-input" type="radio" id="formCheck-3"
+                    name="radioButtons"><label value="2" class="form-check-label" for="formCheck-3">Sou um
+                    entregador</label></div>
             </div>
             <div class="mb-3">
                 <button id="btnCad" class="btn btn-primary d-block w-100" type="submit" (click)='createUser()'>Inscreva-se!</button>
             </div><a id="btnLogin" class="already" [routerLink]="['/login']" routerLinkActive="active">Já tem uma conta? Faça login
                 aqui.</a>
+
         </form>
     </div>
 </section>

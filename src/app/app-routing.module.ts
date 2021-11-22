@@ -13,7 +13,7 @@ import { FinalizarCadastroComponent } from './finalizar-cadastro/finalizar-cadas
 import { TermosDeUsoComponent } from './termos-de-uso/termos-de-uso.component';
 import { ContatoComponent } from './contato/contato.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
-
+import { FinalizaBibliotecaComponent } from './finaliza-biblioteca/finaliza-biblioteca.component';
 
 
 const routes: Routes = [
@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'perfil', component: MinhasInformacoesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'finalizar-cadastro', component: FinalizarCadastroComponent},
+  { path: 'finaliza-biblioteca', component: FinalizaBibliotecaComponent},
   { path: 'termos-de-uso', component: TermosDeUsoComponent},
   { path: 'contato', component: ContatoComponent},
   { path: 'sobre-nos', component: SobreNosComponent}

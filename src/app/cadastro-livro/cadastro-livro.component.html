@@ -1,0 +1,11 @@
+<section class="contact-clean">
+    <form method="post" [formGroup]="pageForm" style="height: 621px;padding: 48px;width: 801px;max-width: none;">
+        <h2 class="text-center">Cadastro de Livro</h2>
+        <div class="mb-3"><input  formControlName="titulo" class="form-control" type="text" name="titulo" placeholder="Título"></div><input formControlName="genero" class="form-control"  type="text" name="genero" placeholder="Gênero">
+        <p style="margin-top: 22px;margin-bottom: 15px;">Descrição</p><input class="form-control" formControlName="descricao" type="text" name="descricao" placeholder="" style="margin-bottom: 1px;margin-top: 16px;height: 171px;">
+        <div class="mb-3"></div>
+        <div class="mb-3"></div>
+        <div class="mb-3"></div><button class="btn btn-primary" type="submit" (click)='createBook()' style="text-align: center;margin-top: 45px;">Enviar</button>
+    </form>
+</section>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
