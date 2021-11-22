@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'IBookSite';
   nomeLogado: string = "";
   btnLogin: string;
+  isBiblio: boolean = false;
   isLogado: boolean = false;
   constructor(private router: Router, private apiUser: UserApiService, private apiBiblio: BibliotecaApiService) {
     if(this.apiUser.isUserLogado() || this.apiBiblio.isBibliotecaLogado()){
@@ -26,7 +27,13 @@ export class AppComponent {
       this.isLogado = this.apiUser.isUserLogado();
       if(this.apiBiblio.isBibliotecaLogado()){
         this.isLogado = true;
+        this.isBiblio = true;
       }
+      else{
+        this.isBiblio = false;
+      }
+
+      
 
       if(val instanceof NavigationEnd){
         if(this.isLogado){

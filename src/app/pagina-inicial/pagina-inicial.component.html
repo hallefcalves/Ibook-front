@@ -8,7 +8,7 @@
                     Bibliotecas, não é mais preciso se deslocar até elas, agora você pode pegar seus livros favoritos
                     emprestados direto da sua casa!<br><br></h1>
             </div>
-            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
+            <div [hidden]="isLogado" class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
                 <form [formGroup]="pageForm">
                     <div class="row" (ngSubmit)="onSubmit($event)">
                         <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg"
@@ -107,7 +107,7 @@
     style="background:url(&quot;assets/img/Fundo%20Biblioteca.jpg&quot;) no-repeat center center;background-size:cover;">
     <div class="overlay"></div>
     <div class="container">
-        <div class="row">
+        <div [hidden]="isLogado" class="row">
             <div class="col-xl-9 mx-auto position-relative">
                 <h2 class="mb-4">Pronto para começar? Inscreva-se agora!</h2>
             </div>

@@ -1,7 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ApplicationInitStatus, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AppRoutingModule } from '../app-routing.module';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserApiService } from '../services/user-api';
+import { BibliotecaApiService } from '../services/biblioteca-api';
 
 @Component({
   selector: 'app-pagina-inicial',
@@ -10,12 +12,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class PaginaInicialComponent implements OnInit {
   // email:string = '';
-  constructor(private fb: FormBuilder,private route: Router) {
+  constructor(private fb: FormBuilder,private route: Router, private apiUser: UserApiService, private apiBiblio: BibliotecaApiService) {
     this.pageForm = this.fb.group({email:['', [Validators.required,Validators.email]]})
    }
+  isLogado: boolean = false;
+
   pageForm: FormGroup;
   ngOnInit(): void {
     this.booleanValueEvent.emit(this.userFlow)
+    this.isLogado = this.apiBiblio.isBibliotecaLogado()||this.apiUser.isUserLogado();
   }
   userFlow: string = "teste";
   

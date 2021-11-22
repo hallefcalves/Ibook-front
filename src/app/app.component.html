@@ -26,9 +26,10 @@
             <li><a class="dropdown-item" [routerLink]="['/livros']" routerLinkActive="active">Meus Livros</a></li>
             <li><a class="dropdown-item" [routerLink]="['/calendario']" routerLinkActive="active">Calendário
                 de Devolução</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/perfil']" routerLinkActive="active">Minhas
+            <li><a class="dropdown-item" [hidden]="isBiblio" [routerLink]="['/perfil']" routerLinkActive="active">Minhas
                 Informações</a></li>
-           
+           <li><a class="dropdown-item"  [hidden]="!isBiblio" [routerLink]="['/cadastro-livro']" routerLinkActive="active">Cadastrar Livros</a></li>
+             
           </ul>
         </li>
       </ul>

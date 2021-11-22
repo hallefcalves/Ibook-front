@@ -14,11 +14,11 @@ import { TermosDeUsoComponent } from './termos-de-uso/termos-de-uso.component';
 import { ContatoComponent } from './contato/contato.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 import { FinalizaBibliotecaComponent } from './finaliza-biblioteca/finaliza-biblioteca.component';
-
+import { CadastroLivroComponent } from './cadastro-livro/cadastro-livro.component';
 
 const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
-  {path: 'mapa', component: MapaComponent},
+  { path: 'mapa', component: MapaComponent},
   { path: 'biblioteca', component: BibliotecaLivrosComponent},
   { path: 'pagina-inicial', component: PaginaInicialComponent},
   { path: '', component: PaginaInicialComponent},
@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'calendario', component: CalendarioDevolucaoComponent },
   { path: 'perfil', component: MinhasInformacoesComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'cadastro-login', component: CadastroComponent },
   { path: 'finalizar-cadastro', component: FinalizarCadastroComponent},
   { path: 'finaliza-biblioteca', component: FinalizaBibliotecaComponent},
   { path: 'termos-de-uso', component: TermosDeUsoComponent},
