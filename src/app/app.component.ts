@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { BibliotecaModule } from './biblioteca/biblioteca.module';
+import { BibliotecaApiService } from './services/biblioteca-api';
 import { UserApiService } from './services/user-api';
 
 @Component({
@@ -12,8 +14,8 @@ export class AppComponent {
   nomeLogado: string = "";
   btnLogin: string;
   isLogado: boolean = false;
-  constructor(private router: Router, private api:UserApiService) {
-    if(this.api.isUserLogado()){
+  constructor(private router: Router, private apiUser: UserApiService, private apiBiblio: BibliotecaApiService) {
+    if(this.apiUser.isUserLogado()){
       this.btnLogin = "LogOff"
     }
     else {
@@ -21,18 +23,22 @@ export class AppComponent {
     }
     
     router.events.subscribe((val => {
-      if(val instanceof NavigationStart){
-        this.isLogado = this.api.isUserLogado();
+      if(val instanceof NavigationEnd){
+        this.isLogado = this.apiUser.isUserLogado();
+        if(this.apiBiblio.isBibliotecaLogado()){
+          this.isLogado = true;
+        }
         
         if(this.isLogado){
           this.btnLogin = "LogOff"
           if(this.nomeLogado==""){
-              this.api.obtemUserLogado().subscribe(dados => {this.nomeLogado = dados.usuario.nome})
+              this.apiUser.obtemUserLogado().subscribe(dados => {this.nomeLogado = dados.usuario.nome})
           }
         }
         else {
+          this.nomeLogado="";
           this.btnLogin = "Login"
-          var urlVar = (val as NavigationStart).url
+          var urlVar = (val as NavigationEnd).url
           if(urlVar=='/perfil'|| urlVar=='/calendario' || urlVar=='/livros'){
             router.navigateByUrl('/login')
           }
@@ -42,7 +48,7 @@ export class AppComponent {
    }
 
   ngOnInit(): void { 
-    if(this.api.isUserLogado()){
+    if(this.apiUser.isUserLogado()){
       this.btnLogin = "LogOff"
     }
     else {
@@ -51,8 +57,8 @@ export class AppComponent {
   }
 
   logOnOff(){
-    if(this.api.isUserLogado()){
-      this.api.limparSession();
+    if(this.apiUser.isUserLogado()){
+      this.apiUser.limparSession();
       this.btnLogin = "Login";
       this.router.navigateByUrl('/');
     }

@@ -65,8 +65,8 @@ export class LoginComponent implements OnInit {
         console.log(data)
         console.log(this.token)
         this.apiBiblio.obtemBibliotecaLogado().subscribe(dados => {
-          var user = dados.usuario
-          if(user.enderecoUsuario.length==0){
+          var user = dados.biblioteca
+          if(user.enderecoBiblioteca.length==0){
             this.rt.navigateByUrl('/finaliza-biblioteca');
           }
           else{
@@ -86,7 +86,6 @@ export class LoginComponent implements OnInit {
 
 
     this.apiUser.validaLogin(this.pageFormLogin.value).subscribe(data => {
-
       if(data.token!=null){
         this.token = data.token;
         var tokenLogin = {} as Token

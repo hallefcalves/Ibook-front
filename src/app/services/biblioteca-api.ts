@@ -31,7 +31,7 @@ export class BibliotecaApiService {
   getBiblioteca() {
     return this.http.get<Biblioteca[]>(this.url);
   }
-  createBiblioteca(Biblioteca: Biblioteca): Observable<Biblioteca> {
+  createBiblioteca(biblioteca: Biblioteca): Observable<Biblioteca> {
     {
       let httpHeaders = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -39,8 +39,8 @@ export class BibliotecaApiService {
       });
       let options = { headers: httpHeaders }
       
-
-      return this.http.post<Biblioteca>(this.url+"/registrar", Biblioteca, options);
+      console.log(biblioteca)
+      return this.http.post<Biblioteca>(this.url+"/registrar", biblioteca, options);
     }
   }
 
