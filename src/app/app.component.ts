@@ -15,7 +15,7 @@ export class AppComponent {
   btnLogin: string;
   isLogado: boolean = false;
   constructor(private router: Router, private apiUser: UserApiService, private apiBiblio: BibliotecaApiService) {
-    if(this.apiUser.isUserLogado()){
+    if(this.apiUser.isUserLogado() || this.apiBiblio.isBibliotecaLogado()){
       this.btnLogin = "LogOff"
     }
     else {
@@ -23,12 +23,23 @@ export class AppComponent {
     }
     
     router.events.subscribe((val => {
+      this.isLogado = this.apiUser.isUserLogado();
+      if(this.apiBiblio.isBibliotecaLogado()){
+        this.isLogado = true;
+      }
+
       if(val instanceof NavigationEnd){
-        this.isLogado = this.apiUser.isUserLogado();
-        if(this.apiBiblio.isBibliotecaLogado()){
-          this.isLogado = true;
+        if(this.isLogado){
+          this.btnLogin = "LogOff"
+          if(this.nomeLogado==""){
+              this.apiUser.obtemUserLogado().subscribe(dados => {this.nomeLogado = dados.usuario.nome})
+          }
         }
+      }
+
+      if(val instanceof NavigationStart){
         
+
         if(this.isLogado){
           this.btnLogin = "LogOff"
           if(this.nomeLogado==""){
@@ -38,7 +49,7 @@ export class AppComponent {
         else {
           this.nomeLogado="";
           this.btnLogin = "Login"
-          var urlVar = (val as NavigationEnd).url
+          var urlVar = (val as NavigationStart).url
           if(urlVar=='/perfil'|| urlVar=='/calendario' || urlVar=='/livros'){
             router.navigateByUrl('/login')
           }
@@ -48,16 +59,11 @@ export class AppComponent {
    }
 
   ngOnInit(): void { 
-    if(this.apiUser.isUserLogado()){
-      this.btnLogin = "LogOff"
-    }
-    else {
-      this.btnLogin = "Login"
-    }
+    
   }
 
   logOnOff(){
-    if(this.apiUser.isUserLogado()){
+    if(this.apiUser.isUserLogado() || this.apiBiblio.isBibliotecaLogado()){
       this.apiUser.limparSession();
       this.btnLogin = "Login";
       this.router.navigateByUrl('/');
